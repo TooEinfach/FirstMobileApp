@@ -1,3 +1,40 @@
+WindowManager:
+    MainWindow:
+    SecondWindow:
+
+<MainWindow>:
+    name: "main"
+
+    GridLayout:
+        cols:1
+
+        GridLayout:
+            cols:2
+
+            Label:
+                text: "Password: "
+            
+            TextInput:
+                id: passwd
+                multiline: False
+
+        Button:
+            text: "Submit"
+            on_release: 
+                app.root.current = "second" if passwd.text == "nick" else "main"
+                root.manager.transition.direction = "left"
+
+<SecondWindow>:
+    name: "second"
+
+    Button:
+        text: "Go Back"
+        on_release:
+            app.root.current = "main"
+            root.manager.transition.direction = "right"
+
+
+
 # <Touch>:
 
 #     btn: btn
